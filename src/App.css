@@ -1,4 +1,15 @@
+*{
+  margin: auto;
+
+}
 .App {
+  text-align: center;
+  ;
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+.app{
   text-align: center;
 }
 
