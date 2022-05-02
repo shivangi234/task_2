@@ -137,7 +137,7 @@ const top5Orgs = [
 
 function Copyright(props) {
     return (
-      <Typography
+      <Typography style={{}}
       variant="body2" color="text.secondary" ml={5} 
       {...props}>
         {"Copyright ©  STL 2021-22 All Rights Reserved"}
