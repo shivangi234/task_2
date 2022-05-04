@@ -14,7 +14,7 @@ import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import { Button } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
