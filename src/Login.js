@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Faq from "./Component/Faq";
 import "./App.css";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,12 +19,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import Cryptojs from "crypto-js";
 import back1 from "../src/Images/back1.jpg";
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import IconButton from '@mui/material/IconButton';
-import AppBar from '@mui/material/AppBar';
 import { useNavigate } from "react-router-dom";
+// import Cryptojs from "crypto-js";
 
 const theme = createTheme();
 
@@ -45,25 +43,30 @@ export default function App() {
       org_code: organization,
     };
 
-
     axios({
       url: "https://liveexam.edusols.com/api/tassess_api.php?oper=LOGIN_CHECK",
       method: "POST",
       data: requestData,
     }).then((response) => {
       const result = response.data;
+      console.log(result);
       if (result.status === 200) {
         if (result.status_message === "Item_Found") {
           toast.success("Login Sucessfully !");
 
           if (result.data.password_change_status === "YES")
-            setTimeout(() => {
+          {
+            localStorage.setItem("resultData", JSON.stringify(result));
+             setTimeout(() => {
               navigate("/photovalidation");
             }, 3000);
-          else
+          }
+          else {
+            localStorage.setItem("localData", JSON.stringify(requestData));
             setTimeout(() => {
               navigate("/password");
             }, 3000);
+          }
         } else {
           setTimeout(() => {
             toast.error("Login Failed !");
@@ -76,7 +79,7 @@ export default function App() {
 
     if (username === "" || password === "" || organization === "") {
       toast.error("User Name Required!");
-      toast.warn("User Password Required!");
+
       toast.error("Organizations Required!");
     } else {
       setTimeout(() => {
@@ -111,39 +114,15 @@ export default function App() {
             md={6}
             sm={3}
             sx={{
-              backgroundImage:
-              `url(${back1})`,
+              backgroundImage: `url(${back1})`,
               backgroundRepeat: "no-repeat",
               maxHeight: "100vh",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
             style={{ minHeight: "100vh" }}
-          > <Grid container spacing={0} columns={24}>
-          <Grid item lg={1} xs={1}></Grid>
-          <AppBar position="static">
-            <Grid item lg={22} xs={22}>
-              <Grid container columns={24}>
-                <Grid item lg={8} xs={24}>
-                  <IconButton
-                    sx={{ float: "left", fontWeight: "bold", color: "EDEDF8" }}
-                  >
-                    <AppRegistrationIcon sx={{ color: "white" }} />
-                    <span style={{ color: "white" }}>Total&nbsp; </span> <span style={{ color: "white",fontSize:'15px' }}>Assesment </span>
-                  </IconButton>
-                </Grid>
-                <Grid item lg={8} xs={24}>
-                  <IconButton
-                    sx={{ float: "left", fontWeight: "bold", color: "EDEDF8" }}
-                  ></IconButton>
-                </Grid>
-                <Grid item lg={8} xs={24}>
-               
-                </Grid>
-              </Grid>
-            </Grid>
-          </AppBar>
-        </Grid>
+          >
+            <Faq />
             <Grid container justifyContent="center">
               <Grid item lg={6} md={3} sm={2} mt={8} component={Paper}>
                 <Container maxWidth="sm" style={{ m: 2 }}>

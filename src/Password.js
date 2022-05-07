@@ -34,6 +34,7 @@ export default function App() {
   const [validate, setValidate] = useState(true);
   const [proceed, setProceed] = useState(false);
   const [failure, setFailure] = useState(false);
+
   const passwordSave = (e) => {
     setPassword(e.target.value);
   };
@@ -80,6 +81,8 @@ export default function App() {
   const check1 = (e) => {
     setConfirmnewpassword(e.target.value);
   };
+  const getData = JSON.parse(localStorage.getItem("localData"));
+  // console.log(getData);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -130,8 +133,7 @@ export default function App() {
               md={6}
               sm={3}
               sx={{
-                backgroundImage:
-                  `url(${back1})`,
+                backgroundImage: `url(${back1})`,
                 backgroundRepeat: "no-repeat",
                 maxHeight: "100vh",
                 backgroundSize: "cover",
@@ -172,8 +174,8 @@ export default function App() {
                             <TextField
                               label="Password"
                               variant="outlined"
-                              type="text"
                               name="password"
+                              value={getData.password}
                               margin="normal"
                               onChange={(e) => passwordSave(e)}
                               fullWidth
@@ -311,7 +313,7 @@ export default function App() {
                         <Typography variant="h6">
                           <b>Password Changed failed....❌</b>
                         </Typography>
-                        <img src={warning} alt=""/>
+                        <img src={warning} alt="" />
                       </Grid>
                     </Grid>
                   </Card>
@@ -334,15 +336,15 @@ export default function App() {
                             color: "green",
                             height: "120px",
                             width: "200px",
-                            marginLeft:"60px",
-                            marginTop:"5px"
+                            marginLeft: "60px",
+                            marginTop: "5px",
                           }}
                         />
-                        
+
                         <Typography
                           variant="h5"
                           style={{
-                           color:"grey"
+                            color: "grey",
                           }}
                         >
                           <b> Password Changed Done..</b>

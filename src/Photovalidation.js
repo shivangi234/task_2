@@ -26,6 +26,8 @@ import back1 from "../src/Images/back1.jpg";
 import warning from "../src/Images/warning.gif";
 import GppBadIcon from "@mui/icons-material/GppBad";
 import ApprovalIcon from "@mui/icons-material/Approval";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function PhotoValidation() {
   let navigate = useNavigate();
@@ -39,6 +41,7 @@ function PhotoValidation() {
   const [attempt, setAttempt] = useState(3);
   const [verified, setVerified] = useState(false);
   const [captured, setCaptured] = useState(false);
+
   //Methods
   const imageMatch = () => {
     if (attempt <= 0) {
@@ -85,6 +88,7 @@ function PhotoValidation() {
             setFailure(false);
             setValidate(false);
             setMatch(false);
+            toast.warn("Photo does not match!");
             setNotmatch(true);
           }
         } else {
@@ -101,7 +105,8 @@ function PhotoValidation() {
     setVerified(true);
     setCaptured(true);
   };
-
+const userData =JSON.parse(localStorage.getItem("resultData"));
+console.log(userData);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -168,7 +173,7 @@ function PhotoValidation() {
                       component="div"
                       style={{ marginLeft: "20" }}
                     >
-                      <b> Hi, Shivangi Sahu &nbsp;</b>
+                      <b> Hi, {userData.data.first_name +" "+userData.data.last_name}  &nbsp;</b>
                       <Button
                         variant="outlined"
                         style={{
@@ -203,7 +208,7 @@ function PhotoValidation() {
                       <Box>
                         <img
                           style={{ borderRadius: "10px" }}
-                          src={profilePhoto}
+                          src={userData.data.profile_image_url}
                           height="160px"
                           width="130px"
                           alt="Profile"
@@ -404,6 +409,7 @@ function PhotoValidation() {
                   color: "grey",
                 }}
               >
+                
                 <b>Photo does not match‼</b>
               </Typography>
             </Card>
