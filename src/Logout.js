@@ -20,10 +20,11 @@ const Logout = () => {
       >
         <Card
           sx={{
-            marginTop: "80px",
+            marginTop: "90px",
             width: "800px",
-            height: "500px",
-            marginBottom: "61px",
+            height: "400px",
+            marginBottom: "151px",
+            borderRadius:'5px'
           }}
         >
           <Typography
@@ -40,9 +41,9 @@ const Logout = () => {
           <img
             src={logout}
             alt=""
-            height="300px"
+            height="200px"
             width="500px"
-            marginTop="10px"
+            marginTop="5px"
             style={{ marginTop: "70px", marginBottom: "5px" }}
           />
           <Typography sx={{}}>
@@ -51,7 +52,7 @@ const Logout = () => {
               color="secondary"
               onClick={() => navigate("/login")}
             >
-              Login
+              Login Again
             </Button>
           </Typography>
         </Card>

@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import ErrorIcon from "@mui/icons-material/Error";
-import profilePhoto from "./Images/shivangisahu.jpg";
+// import profilePhoto from "./Images/shivangisahu.jpg";
 import CameraIcon from "@mui/icons-material/Camera";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { createTheme, ThemeProvider } from "@mui/material/styles";

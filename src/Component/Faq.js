@@ -81,8 +81,8 @@ export default function KeepMountedModal() {
       <Grid container lg={12} md={8} sm={4}>
         <AppBar position="dynamic" backgroundColor ="black">
           <Toolbar>
-            <Grid item lg={3} md={6} xs={12}>
-              <Typography variant="h5"  sx={{ flexGrow: 1,float:'left' }}>
+            <Grid item lg={3} md={6} xs={12} >
+              <Typography variant="h5"  sx={{ flexGrow: 1,float:'left' ,marginLeft:'-620px'}}>
                 <AppRegistrationIcon sx={{fontSize:'25px',float:'left'}} />
                 <span style={{fontSize:'28px',fontWeight:'bolder'}}>TOTAL</span>
               <span style={{fontSize:'16px',fontWeight:'bolder',}}>Assesment</span>
@@ -91,7 +91,7 @@ export default function KeepMountedModal() {
             <Grid item lg={8}></Grid>
             <Grid item lg={1} md={4} sm={1}>
               <Button
-                sx={{ mb: 1 }}
+                sx={{ mb: 1,marginRight:'-800px' }}
                 variant="contained"
                 size="small"
                 color="warning"
@@ -277,189 +277,7 @@ export default function KeepMountedModal() {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              {/* <Accordion
-                expanded={expanded === "panel6"}
-                onChange={handleChange("panel6")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>What is photo attendance?</b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Photo attendance will be taken just after successful login
-                    of examine. Examinee has to allow the Camera and microphone
-                    to take the photograph in right angle ,so that one clear
-                    image will be captured. Once the candidate click on VERIFY
-                    button, It will match with the existing profile photo
-                    (Display in left side of the page). After successful match
-                    Candidates will able to land on dashboard.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel7"}
-                onChange={handleChange("panel7")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>I am unable to validate my photo</b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Make sure the available profile photo is you and the
-                    photograph captured should have clearly taken and face is
-                    visible. If not then try again at least 3 times to validate.
-                    After 3 unsuccessful attempt, your photo validation will go
-                    for admin approval and in this case please wait for approval
-                    or take help desk service to approve.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel8"}
-                onChange={handleChange("panel8")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>
-                      How will we come to know which are the question left
-                      unanswered ?
-                    </b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    There will be a panel right side on computer screen showing
-                    all the question numbers in different colour which will
-                    indicate the questions Answered, left unanswered or marked
-                    for review.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel9"}
-                onChange={handleChange("panel9")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>Can the candidate change their answers ?</b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Yes, during the exam any time candidates can change their
-                    answers.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel10"}
-                onChange={handleChange("panel10")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>how to submit the test ?</b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    “FINAL SUBMIT” button to end the Test is available in the
-                    page. By clicking that button candidate can submit the test.
-                    The End Test will also auto submit once the time will over.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel11"}
-                onChange={handleChange("panel11")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>
-                      What should be attire of candidates appearing in the test?
-                    </b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    It should be decent and presentable. Candidates should wear
-                    such clothes presuming as if they are physically sitting in
-                    Exam center and appearing for the test. Candidates are
-                    advised to sit properly and comfortably on table/chair in
-                    right posture to appear in test. They should not lie-down on
-                    bed or do not sit in awkward positions.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel12"}
-                onChange={handleChange("panel12")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>
-                      What should be setting in the room from where candidate is
-                      appearing for the test?
-                    </b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Setting of room should be maintained in exam like
-                    environment, disciplined and without any disturbances.
-                    Surroundings of room should be neat & clean. During the
-                    exam, live proctor may ask the candidate to show the 360
-                    degree view of the room.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                expanded={expanded === "panel13"}
-                onChange={handleChange("panel13")}
-              >
-                <AccordionSummary
-                  aria-controls="panel3d-content"
-                  id="panel3d-header"
-                >
-                  <Typography>
-                    <b>
-                      Is bio break (use of Toilet ) is allowed during the test?
-                    </b>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    The candidates will not be allowed to take bio-break ( use
-                    of Toilet) during the test. If any candidate takes any break
-                    during the test, will be treated as resorting to unfair
-                    means.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion> */}
+             
             </Grid>
           </Box>
         </Modal>

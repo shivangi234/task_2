@@ -42,7 +42,7 @@ export default function App() {
       password: password,
       org_code: organization,
     };
-
+console.log(requestData);
     axios({
       url: "https://liveexam.edusols.com/api/tassess_api.php?oper=LOGIN_CHECK",
       method: "POST",
@@ -63,6 +63,7 @@ export default function App() {
           }
           else {
             localStorage.setItem("localData", JSON.stringify(requestData));
+            localStorage.setItem("resultData", JSON.stringify(result));
             setTimeout(() => {
               navigate("/password");
             }, 3000);
@@ -141,6 +142,14 @@ export default function App() {
                       <b>Login</b>
                     </Typography>
                     <TextField
+                    label ="User Name"
+                    variant="outlined"
+                    name="username"
+                    id="username"
+                    onChange={(e) => setUsername(e.target.value) }
+                    fullWidth
+                     />
+                    {/* <TextField
                       label="User Name"
                       variant="outlined"
                       type="text"
@@ -148,7 +157,7 @@ export default function App() {
                       id="username"
                       onChange={(e) => setUsername(e.target.value)}
                       fullWidth
-                    />
+                    /> */}
                     <TextField
                       autoComplete="password"
                       label="Password"

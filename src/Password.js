@@ -4,6 +4,7 @@ import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 import passwordValidator from "password-validator";
 import ReportIcon from "@mui/icons-material/Report";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -22,8 +23,9 @@ import warning from "../src/Images/warning.gif";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 export default function App() {
+  let navigate = useNavigate();
   var schema = new passwordValidator();
-  const [password, setPassword] = useState(" ");
+  // const [password, setPassword] = useState(" ");
   const [newpassword, setNewpassword] = useState("");
   const [confirmnewpassword, setConfirmnewpassword] = useState(" ");
   const [ma, setMa] = useState(false);
@@ -35,9 +37,9 @@ export default function App() {
   const [proceed, setProceed] = useState(false);
   const [failure, setFailure] = useState(false);
 
-  const passwordSave = (e) => {
-    setPassword(e.target.value);
-  };
+  // const passwordSave = (e) => {
+  //   setPassword(e.target.value);
+  // };
   const check = (e) => {
     schema
       .is()
@@ -82,19 +84,24 @@ export default function App() {
     setConfirmnewpassword(e.target.value);
   };
   const getData = JSON.parse(localStorage.getItem("localData"));
-  // console.log(getData);
+  const userData = JSON.parse(localStorage.getItem("resultData"));
+// console.log(userData.data); 
+  console.log(getData);
 
   const submitForm = (e) => {
+      const password=document.getElementById("old_pwd").value;
+    // console.log(password);
+    // return false ; Ab@01234
     e.preventDefault();
 
     const requestPassword = {
       password: password,
       new_password: newpassword,
       confirm_newpassword: confirmnewpassword,
-      user_code: "alokSTLIND",
-      org_code: "STLIND",
+      user_code: userData.data.user_code,
+      org_code: getData.org_code,
     };
-    console.log(requestPassword);
+    // console.log(requestPassword);
 
     axios({
       url: "https://liveexam.edusols.com/api/tassess_api.php?oper=PASSWORD_CHANGE",
@@ -161,8 +168,9 @@ export default function App() {
                         variant="h11"
                         sx={{ flexGrow: 1, mb: 2, ml: 45 }}
                       >
-                        <b>Welcome, Shivangi Sahu</b>
-                        <Button variant="outlined" size="small" color="warning">
+                        <b>Welcome,{userData.data.first_name +" "+userData.data.last_name}  </b>
+                        <Button variant="outlined" size="small" color="warning"
+                            onClick={() => navigate("/logout")}>
                           <LogoutIcon /> LOGOUT
                         </Button>
                       </Typography>
@@ -173,11 +181,12 @@ export default function App() {
                           <Box m={3}>
                             <TextField
                               label="Password"
+                              id="old_pwd"
                               variant="outlined"
                               name="password"
                               value={getData.password}
                               margin="normal"
-                              onChange={(e) => passwordSave(e)}
+                              // onChange={(e) => passwordSave(e)}
                               fullWidth
                             />
                             <TextField
