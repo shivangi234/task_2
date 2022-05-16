@@ -82,7 +82,7 @@ export default function KeepMountedModal() {
         <AppBar position="dynamic" backgroundColor ="black">
           <Toolbar>
             <Grid item lg={3} md={6} xs={12} >
-              <Typography variant="h5"  sx={{ flexGrow: 1,float:'left' ,marginLeft:'-620px'}}>
+              <Typography variant="h5"  sx={{ flexGrow: 1,float:'left' ,marginLeft:'-20px'}}>
                 <AppRegistrationIcon sx={{fontSize:'25px',float:'left'}} />
                 <span style={{fontSize:'28px',fontWeight:'bolder'}}>TOTAL</span>
               <span style={{fontSize:'16px',fontWeight:'bolder',}}>Assesment</span>
@@ -90,8 +90,9 @@ export default function KeepMountedModal() {
             </Grid>
             <Grid item lg={8}></Grid>
             <Grid item lg={1} md={4} sm={1}>
+              <Typography sx={{float: 'right',marginLeft:'1000px'}}>
               <Button
-                sx={{ mb: 1,marginRight:'-800px' }}
+                sx={{ mb: 1 }}
                 variant="contained"
                 size="small"
                 color="warning"
@@ -100,6 +101,7 @@ export default function KeepMountedModal() {
               >
                 FAQ
               </Button>
+              </Typography>
             </Grid>
           </Toolbar>
         </AppBar>
